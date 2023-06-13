@@ -1158,7 +1158,10 @@ main(int argc, char **argv)
   tcp_server_preinit(opt_ipv6);
   http_server_init(opt_bindaddr);    // bind to ports only
   htsp_init(opt_bindaddr);	     // bind to ports only
-  satip_server_init(opt_satip_bindaddr, opt_satip_rtsp); // bind to ports only
+  if (!opt_nosatip) {
+    satip_server_boot();
+    satip_server_init(opt_satip_bindaddr, opt_satip_rtsp); // bind to ports only
+  }
 
   if (opt_fork)
     pidfile = tvh_fopen(opt_pidpath, "w+");
