@@ -28,6 +28,7 @@ jobs:
             prefix: debian
           - container: Containerfile.alpine
             autotag: auto
+            prefix: ""
 
     steps:
       - name: Checkout repository
