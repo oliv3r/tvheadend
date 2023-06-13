@@ -1809,8 +1809,6 @@ config_boot
 
   idclass_register(&config_class);
 
-  satip_server_boot();
-
   /* Configure settings routines */
   hts_settings_init(config.confdir);
 
