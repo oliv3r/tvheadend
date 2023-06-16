@@ -25,7 +25,7 @@ jobs:
         include:
           - container: Containerfile.debian
             autotag: false
-            prefix: debian
+            suffix: -debian
           - container: Containerfile.alpine
             autotag: auto
 
@@ -61,7 +61,7 @@ jobs:
             type=semver,pattern={{major}}
           flavor: |
             latest=${{ matrix.autotag }}
-            prefix=${{ matrix.prefix }}
+            suffix=${{ matrix.suffix }}
 
       - name: Build and push
         uses: docker/build-push-action@v4
